@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    
+    <!-- Style -->
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    
+    
+    <!-- Script -->
+    <script src="https://unpkg.com/react@latest/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    
+    
+
+   <title>tic tac toe</title>
+
+</head>
+    
+    
+<script type="text/jsx">
+
+var items = [1,2,3,4,5,6,7,8,9]
+
+/* ------------------------------------------------------------- */
+/* -.-.-.-.-.-.-.-.-.-.-.-.-.-. Component -.-.-.-.-.-.-.-.-.-.-. */
+/* ------------------------------------------------------------- */
+class Place extends React.Component {
+    
+constructor(props) {
+			super(props);
+            
+			this.handleClick = this.handleClick.bind(this);
+            this.handleColorr = this.handleColorr.bind(this);
+            this.handleColorb = this.handleColorb.bind(this);
+                
+			this.state = {
+				selectedx: 'true',
+                selectedo: 'false',
+                count: 0,
+                status: '',
+                one:'',
+                two:'',
+                three:'',
+                four:'',
+                five:'',
+                six:'',
+                seven:'',
+                eight:'',
+                nine:'',
+                    
+                
+			}
+		}
+    
+    
+/* -------------------------Click------------------------------------ */
+handleClick(event) {
+console.log(event.target.id); 
+let count = this.state.count;
+    
+if (count <= 8){
+            if (this.state.selectedx === 'true') { // player X turn
+                    
+                    this.setState({
+                        selectedx: 'false',
+                        selectedo: 'true',
+                        count: count + 1
+                    }); 
+                
+                   
+                this.handleColorr(event.target.id);
+            }
+            else if (this.state.selectedo === 'true') {  // player O turn
+                    
+                    this.setState({
+                        selectedo: 'false',
+                        selectedx: 'true',
+                        count: count + 1
+                    });
+                   
+                this.handleColorb(event.target.id);
+            }  
+}
+else {
+    console.log('game over');
+    this.setState({
+            status: 'Game over',
+                    });
+}
+
+
+
+} // end function
+        
+/* ----------------------End Click--------------------------------------- */      
+    
+/* -----------------------Color red-------------------------------------- */
+handleColorr(x) {
+    
+if(x === 'one'){
+    
+    this.setState({
+            one: 'red',
+    });
+}
+if(x === 'two'){
+    
+    this.setState({
+            two: 'red',
+    });
+} 
+if(x === 'three'){
+    
+    this.setState({
+            three: 'red',
+    });
+}
+if(x === 'four'){
+    
+    this.setState({
+            four: 'red',
+    });
+}    
+if(x === 'five'){
+    
+    this.setState({
+            five: 'red',
+    });
+}
+if(x === 'six'){
+    
+    this.setState({
+            six: 'red',
+    });
+}    
+if(x === 'seven'){
+    
+    this.setState({
+            seven: 'red',
+    });
+}
+if(x === 'eight'){
+    
+    this.setState({
+            eight: 'red',
+    });
+}
+    
+if(x === 'nine'){
+    
+    this.setState({
+            nine: 'red',
+    });
+}
+} // end function
+        
+/* ------------------------End Color red------------------------------------- */ 
+    
+/* -----------------------Color blue-------------------------------------- */
+handleColorb(x) {
+    
+if(x === 'one'){
+    
+    this.setState({
+            one: 'blue',
+    });
+}
+if(x === 'two'){
+    
+    this.setState({
+            two: 'blue',
+    });
+} 
+if(x === 'three'){
+    
+    this.setState({
+            three: 'blue',
+    });
+}
+if(x === 'four'){
+    
+    this.setState({
+            four: 'blue',
+    });
+}    
+if(x === 'five'){
+    
+    this.setState({
+            five: 'blue',
+    });
+}
+if(x === 'six'){
+    
+    this.setState({
+            six: 'blue',
+    });
+}    
+if(x === 'seven'){
+    
+    this.setState({
+            seven: 'blue',
+    });
+}
+if(x === 'eight'){
+    
+    this.setState({
+            eight: 'blue',
+    });
+}
+    
+if(x === 'nine'){
+    
+    this.setState({
+            nine: 'blue',
+    });
+} 
+} // end function
+        
+/* ------------------------End Color blue------------------------------------- */ 
+    
+render() {
+   
+    return ( 
+        <div>
+            <div className="table_row" >
+                    <div style={{backgroundColor: this.state.one}} onClick={this.handleClick} className="td" id="one"> </div>
+                    <div style={{backgroundColor: this.state.two}} onClick={this.handleClick} className="td" id="two"> </div>
+                    <div style={{backgroundColor: this.state.three}} onClick={this.handleClick} className="td" id="three"> </div>
+             </div>
+             <div className="table_row" >
+                    <div style={{backgroundColor: this.state.four}} onClick={this.handleClick} className="td" id="four"> </div>
+                    <div style={{backgroundColor: this.state.five}} onClick={this.handleClick} className="td" id="five"> </div>
+                    <div style={{backgroundColor: this.state.six}} onClick={this.handleClick} className="td" id="six"> </div>
+             </div>
+             <div className="table_row" >
+                    <div style={{backgroundColor: this.state.seven}} onClick={this.handleClick} className="td" id="seven"> </div>
+                    <div style={{backgroundColor: this.state.eight}} onClick={this.handleClick} className="td" id="eight"> </div>
+                    <div style={{backgroundColor: this.state.nine}} onClick={this.handleClick} className="td" id="nine"> </div>
+             </div>
+    
+        </div>
+
+)
+}
+}
+
+/* ------------------------------------------------------------- */
+/* -.-.-.-.-.-.-.-.-.-.-.-.-.-. REACT DOM -.-.-.-.-.-.-.-.-.-.-. */
+/* ------------------------------------------------------------- */
+	ReactDOM.render(
+		<Place />,
+		document.getElementById('app')
+	);
+
+    </script>
+    
+    
+    
+    
+    
+    
+    
+<body>
+    <div id="header">
+        <h1>Tic tac toe</h1> <br>
+    </div>
+    
+   
+    <div id="main">
+            <div class="flex">
+              <div><h2>Rules</h2> <p><h3>Name: Tic-tac-toe</h3> <h4>Also known as noughts and crosses or Xs and Os.</h4> It is a paper-and-pencil game for two players, X and O, who take turns marking the spaces in a 3×3 grid. <br />The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row wins the game.</p></div>
+              <div><h2>Game</h2><div class="thegame" id="app"></div></div>
+              <div><h2>Score</h2></div>
+        </div>
+    </div>
+    
+
+    
+</body>
+</html>
