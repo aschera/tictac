@@ -60,18 +60,49 @@ h1 {
 
    height: 10rem;
 }
+
+#status {
+   display: -webkit-box; display: -moz-box;
+   display: -ms-flexbox;
+   display: -webkit-flex;
+   display: flex;
+
+   -webkit-box-align: center; -moz-box-align: center;
+   -ms-flex-align: center;
+   -webkit-align-items: center;
+   align-items: center;
+
+   height: 6rem;
+}
+
+
+input[type="reset"] { 
+    margin-top: 1em; 
+    padding:0.5em 0.5em; 
+    background-color:slategrey; 
+    font: 0.7em arial;
+    color:floralwhite;
+    text-align:center;
+    cursor:pointer; }
+
+input[type="reset"]:hover {
+    background-color:goldenrod; 
+}
+
     
     /* the three fold menu thing */ 
  .flex {
         /* basic styling */
-        width: 50vw;
-        height: 50vh;
+        width: 70vw;
+        height: 70vh;
         border: 0.2em solid #555;
         font: 1em Arial;
 
         /* flexbox setup */
         display: flex;
         flex-direction: row;
+     overflow: hidden;
+     margin-bottom: height: 10rem;
     }
 
     .flex > div {
@@ -84,7 +115,7 @@ h1 {
 
     /* colors */
     .flex > div:nth-child(1){ 
-        background: #009246; 
+        background: goldenrod; 
 }
 
     .flex > div:nth-child(2){ 
@@ -92,7 +123,7 @@ h1 {
 }
 
     .flex > div:nth-child(3){ 
-        background: #CE2B37; 
+        background: goldenrod; 
 }
 
     .flex > div:hover {
@@ -144,6 +175,8 @@ min-height:1.5em;
 text-align:center; 
 vertical-align:middle;
 }
+
+.td:hover {cursor:pointer;}
 
 .x {
   background-color: blueviolet;
